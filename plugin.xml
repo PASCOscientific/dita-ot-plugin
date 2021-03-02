@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin PUBLIC "-//Oxygen Plugin" "../plugin.dtd">
+<plugin
+ id="com.pasco.dita-ot"
+ name="DITA OT Plugin"
+ description="Contribute DITA OT 3.x for publishing DITA content from Oxygen"
+ version="1.0"
+ vendor="PASCO scientific"
+ class="ro.sync.exml.plugin.Plugin">
+ <extension type="AdditionalDITAOT" path="DITA-OT3.x" description="PASCO DITA OT 3.x (Add-on)"/>
+</plugin>
