@@ -1,0 +1,1 @@
+This project contains third party software which requires notices and/or additional terms and conditions. The included third party software notices and/or additional terms and conditions are located in root of the DITA-OT3.x directory. By accepting this Agreement, You are also accepting the additional terms and conditions, if any, forth therein.
