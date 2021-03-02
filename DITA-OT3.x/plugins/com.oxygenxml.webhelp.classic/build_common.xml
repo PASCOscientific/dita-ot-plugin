@@ -15,7 +15,7 @@ Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
 
 	<property name="webhelp.version" value="23.0" />
 
-	<property name="webhelp.build.number" value="2020121702" />
+	<property name="webhelp.build.number" value="2020121802" />
 
 	<!-- Property to disable search autocomplete -->
 	<property name="webhelp.enable.search.autocomplete" value="true" />

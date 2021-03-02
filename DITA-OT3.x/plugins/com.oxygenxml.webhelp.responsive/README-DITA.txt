@@ -1,4 +1,4 @@
-Oxygen Webhelp Responsive Plugin 23.0, build 2020121702 
+Oxygen Webhelp Responsive Plugin 23.0, build 2020121802 
 
 INTRODUCTION
 =============

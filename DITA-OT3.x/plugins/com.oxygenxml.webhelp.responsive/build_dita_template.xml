@@ -182,7 +182,7 @@ Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
     
     <!-- WebHelp version & build number. -->
     <property name="webhelp.version" value="23.0" />
-    <property name="webhelp.build.number" value="2020121702" />
+    <property name="webhelp.build.number" value="2020121802" />
     
     <!-- Condition to enable the Feedback feature. --> 
     <condition property="webhelp.feedback.enabled">
@@ -544,7 +544,7 @@ Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
   	     <format property="timestamp" pattern="yyyyMMddHHmmss"/>
   	</tstamp>
   	<replace file="${output.dir}/oxygen-webhelp/app/config.js" token="@@TIMESTAMP@@" value="${timestamp}"/>
-  	<replace file="${output.dir}/oxygen-webhelp/app/config.js" token="2020121702" value="${webhelp.build.number}"/>
+  	<replace file="${output.dir}/oxygen-webhelp/app/config.js" token="2020121802" value="${webhelp.build.number}"/>
   	
   </target>
   
