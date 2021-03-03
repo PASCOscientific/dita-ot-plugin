@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="com.pasco.dita-ot">
         <xt:location href="https://github.com/PASCOscientific/dita-ot-plugin/archive/main.zip"/>
-        <xt:version>1.0.0</xt:version>
+        <xt:version>1.1.0</xt:version>
         <xt:oxy_version>23.0</xt:oxy_version>
         <xt:type>plugin</xt:type>
         <xt:author>PASCO scientific</xt:author>
