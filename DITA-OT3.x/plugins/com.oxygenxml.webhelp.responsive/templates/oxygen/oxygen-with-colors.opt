@@ -11,6 +11,8 @@
     </tags>
     <resources>
       <css file="oxygen-with-colors.css"/>
+      <!-- CSS for notes -->
+      <css file="notes.css"/>
     </resources>
   </pdf>
 </publishing-template>

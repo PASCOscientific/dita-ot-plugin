@@ -10,6 +10,8 @@
     </tags>
     <resources>
       <css file="ashes-with-colors.css"/>
+      <!-- CSS for notes -->
+      <css file="notes.css"/>
     </resources>
   </pdf>
 </publishing-template>

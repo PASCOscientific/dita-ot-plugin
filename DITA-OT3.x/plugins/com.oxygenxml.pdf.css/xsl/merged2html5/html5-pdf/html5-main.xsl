@@ -4,6 +4,7 @@
                 xmlns:css-param="http://www.oxygenxml.com/extensions/publishing/dita/css/params"
                 xmlns:math="http://www.w3.org/1998/Math/MathML"
                 xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:Evaluate="java:com.oxygenxml.dita.xsltextensions.Evaluate"
                 exclude-result-prefixes="#all" >
   <xsl:param name="html5.css.links" />
   
@@ -11,7 +12,7 @@
   <xsl:template name="generateCssLinks">
     <xsl:if test="$html5.css.links">    
       <xsl:text>&#10;</xsl:text>
-      <xsl:value-of select="$html5.css.links" disable-output-escaping="yes"/>
+      <xsl:copy-of select="parse-xml(concat('&lt;root>', $html5.css.links, '&lt;/root>'))/*/node()"/>
     </xsl:if>
   </xsl:template>  
   

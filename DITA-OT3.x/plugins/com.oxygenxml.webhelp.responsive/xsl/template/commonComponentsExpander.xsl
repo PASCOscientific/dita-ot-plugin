@@ -2,7 +2,7 @@
 <!--
     
 Oxygen Webhelp plugin
-Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
+Copyright (c) 1998-2021 Syncro Soft SRL, Romania.  All rights reserved.
 
 -->
 <!-- Used to expand Webhelp components that are common to all templates: topic, search, main.  -->
@@ -526,6 +526,71 @@ Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
         </xsl:call-template>
     </xsl:template>
     
+    <!-- External resource link -->
+    <xsl:template match="whc:external_resourse_link[@type='pdf_link']" mode="copy_template">
+        
+        <xsl:param name="ditaot_topicContent" tunnel="yes"/>
+        
+        <xsl:variable name="showPdfLink" 
+            select="oxy:getParameter('webhelp.show.pdf.link') = 'yes' and
+            string-length(oxy:getParameter('webhelp.pdf.link.url')) > 0 and
+            string-length(oxy:getParameter('webhelp.pdf.link.text')) > 0"
+            as="xs:boolean"/>
+        
+        <xsl:if test="$showPdfLink" >
+            
+            <a target="_blank" >
+                <xsl:attribute name="href" >
+                    <xsl:variable name="url">
+                        <xsl:value-of>
+                            <xsl:apply-templates select="@href" mode="copy_template"/>
+                        </xsl:value-of>
+                    </xsl:variable>
+                    
+                    <xsl:variable name="pdfLinkContext">
+                        <xsl:if test="oxy:getParameter('webhelp.pdf.link.name.destination.enabled') = 'yes' and exists($ditaot_topicContent)">
+                            <xsl:value-of select="$ditaot_topicContent//*:head/*:meta[@name='DC.identifier']/@content"/>
+                        </xsl:if>
+                    </xsl:variable>
+                    
+                    <xsl:choose>
+                        <xsl:when test="string-length($pdfLinkContext) > 0">
+                            <xsl:value-of select="concat($url, '#', $pdfLinkContext)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$url"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+                <xsl:variable name="linkText">
+                    <xsl:value-of>
+                        <xsl:apply-templates select="@title" mode="copy_template"/>
+                    </xsl:value-of>
+                </xsl:variable>
+                <xsl:attribute name="title" select="$linkText"/>
+                <xsl:attribute name="aria-label" select="$linkText"/>   
+                
+                <xsl:call-template name="generateComponentClassAttribute">
+                    <xsl:with-param name="compClass">wh_external_resourse_link <xsl:value-of select="@type"/></xsl:with-param>
+                </xsl:call-template>
+                
+                <xsl:variable name="imageUrl">
+                    <xsl:value-of>
+                        <xsl:apply-templates select="@image" mode="copy_template"/>
+                    </xsl:value-of>
+                </xsl:variable>
+                <xsl:choose>
+                    <xsl:when test="string-length($imageUrl) > 0">
+                        <img src="{$imageUrl}"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="oxy-icon oxy-icon-pdf-link"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </a>
+        </xsl:if>
+    </xsl:template>
+    
     
     <!-- Utility functions -->
     <!-- 
@@ -865,17 +930,13 @@ Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
         <xsl:variable name="content" select="doc($hrefURL)"/>
         <xsl:variable name="selectedNodes">
             <xsl:choose>
-                <xsl:when test="$content/*:html/*:body">
+                <xsl:when test="$content/*:html/*:head or $content/*:html/*:body">
+                    <xsl:copy-of select="$content/*:html/*:head/node()"/>
                     <xsl:copy-of select="$content/*:html/*:body/node()"/>
                 </xsl:when>
-                <xsl:when test="$content/*:body">
-                    <xsl:copy-of select="$content/*:body/node()"/>
-                </xsl:when>
-                <xsl:when test="$content/*:html/*:head">
-                    <xsl:copy-of select="$content/*:html/*:head/node()"/>
-                </xsl:when>
-                <xsl:when test="$content/*:head">
+                <xsl:when test="$content/*:head or $content/*:body">
                     <xsl:copy-of select="$content/*:head/node()"/>
+                    <xsl:copy-of select="$content/*:body/node()"/>
                 </xsl:when>
                 <xsl:when test="$content/*:html">
                     <xsl:copy-of select="$content/*:html/node()"/>

@@ -1,4 +1,4 @@
-DITA Open Toolkit bundled with Oxygen 23.0, build 2020121802
+DITA Open Toolkit bundled with Oxygen 23.1, build 2021030218
 
 Differences between the DITA Open Toolkit bundled with Oxygen and a regular DITA Open Toolkit distribution
 downloaded from the DITA-OT project:
@@ -28,8 +28,7 @@ com.oxygenxml.media
 com.oxygenxml.merged
 com.oxygenxml.pdf.css 		
 com.oxygenxml.pdf.custom - deprecated, will be removed in future versions
-com.oxygenxml.pdf.review
-com.oxygenxml.webhelp.classic 
+com.oxygenxml.pdf.review 
 com.oxygenxml.webhelp.common
 com.oxygenxml.webhelp.responsive
 mathml
@@ -121,6 +120,7 @@ org.lwdita
 	
 org.dita.pdf2.fop
 	Added oxygen-patched-* extra jar libraries to the FOP. It allows the FOP to output MathML equations, and various SVG fixes.
+	Updated used Batik Libraries to version 1.13 to avoid CVE-2019-17566
 org.dita.pdf2.fop/cfg.fop.xconf	
     EXM-42187, use a higher source resolution so that SVGs do not appear scaled up
     

@@ -20,10 +20,10 @@ See the accompanying LICENSE file for applicable license.
             depends="dita2javahelp.init, build-init, preprocess, 
                      xhtml.topics,
                      copy-css">
-          <antcall target="dita.map.javahelp"/>
-          <antcall target="compile.Java.Help"/>
+          <antcall target="dita.map.javahelp" inheritrefs="true"/>
+          <antcall target="compile.Java.Help" inheritrefs="true"/>
              <!-- OXYGEN PATCH START EXM-18027 -->
-        <antcall target="buildJar"/>
+        <antcall target="buildJar" inheritrefs="true"/>
                      <!-- OXYGEN PATCH END EXM-18027 -->
     </target>
 

@@ -13,6 +13,14 @@
   *[class~="map/map"]:-oxy-topic-content-mode *[class~="map/map"][title] {
     content: oxy_label(text, attr(title, string, 'No title attribute specified'), styles, 'font-weight: bold; font-size: 2.5em;');
   }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref'] {
+    /* Display the topicref rendering in reltable */
+  }
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref']:before(1100),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref']:before(1020),
+  *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/reltable'] *[class~='map/topicref']:before(1150) {
+    display: inline-block !important;
+  }
   *[class~="map/map"]:-oxy-topic-content-mode *[class~='map/topicref'] {
     margin-left: 0.4em !important;
     margin-top: 2em !important;

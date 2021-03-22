@@ -28,6 +28,7 @@
             'webhelp.publication.toc.tooltip.position',
             'webhelp.search.enable.pagination',
             'webhelp.search.page.numberOfItems',
+            'webhelp.custom.search.engine.enabled',
             'webhelp.default.collection.type.sequence',
             'args.hide.parent.link',
             'use.stemming',

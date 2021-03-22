@@ -56,8 +56,8 @@
 }
 
 /* 
- * The hazard icon should be displayed only on danger, warning and caution.
+ * Avoid any page-break between note title and first next sibling.
  */
-*[class~="hazard-d/hazardstatement"][type]:not([type="danger"]):not([type="warning"]):not([type="caution"]) tr + tr > td:first-child {
-    display: none;
+span.note__title {
+  page-break-after: avoid;
 }

@@ -21,6 +21,15 @@
           styles, 'font-weight: bold; font-size: 2.5em;');
       }
     }
+    
+    & *[class~='map/reltable'] *[class~='map/topicref'] {
+          /* Display the topicref rendering in reltable */
+          &:before(1100),
+          &:before(1020),
+          &:before(1150) {
+            display: inline-block !important;
+      }
+    }
   
     & *[class~='map/topicref'] {
       // Impose a small left margin for each topic.
@@ -52,7 +61,7 @@
       &:before(1150) {
         display: none !important;
       }
-  
+      
       // Place the reference link inline with the title.
       & > * > [class~="topic/title"]:before(210),
       & > *[title]:before(210) {

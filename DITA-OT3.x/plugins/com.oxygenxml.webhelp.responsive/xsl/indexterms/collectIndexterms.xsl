@@ -2,7 +2,7 @@
 <!--
     
 Oxygen WebHelp Plugin
-Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
+Copyright (c) 1998-2021 Syncro Soft SRL, Romania.  All rights reserved.
 
 -->
 
@@ -27,12 +27,12 @@ Copyright (c) 1998-2020 Syncro Soft SRL, Romania.  All rights reserved.
     
     <xsl:template match="/">
         <xsl:variable name="terms">
-            <xsl:variable name="jobContents" select="document(oxygen:makeURL($JOB_FILE))"/>
+            <xsl:variable name="jobContents" select="document(oxygen:makeURL($JOB_FILE), .)"/>
             <xsl:for-each select="$jobContents//file[@format='dita'][not(@resource-only='true')]/@uri">
                 <xsl:variable 
                     name="INDEXFILE_URL" 
                     select="oxygen:makeURL(concat($TEMPFOLDER, '/', ., '.indexterms'))"/>
-                <xsl:copy-of select="document($INDEXFILE_URL)/*/*"/>
+                <xsl:copy-of select="document($INDEXFILE_URL, .)/*/*"/>
             </xsl:for-each>
         </xsl:variable>
         
